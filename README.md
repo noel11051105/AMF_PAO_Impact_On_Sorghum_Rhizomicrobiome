@@ -3,6 +3,8 @@ Synergistic enhancement of Sorghum bicolor nutrient uptake and growth by EBPR mi
 
 This repository includes RData files and associated outputs used for univariate statistical analyses and 16S rRNA-based microbiome profiling, focused on plant biometrics, soil chemistry, and rhizosphere microbial communities.
 
+Dataset: All relevant raw datasets used in this study are available in this folder.
+
 Figure 1
 - Fig1_codes.R: Contains statistical testing workflows and graphical outputs based on datasets related to plant biometrics (shoot height, dry mass, stalk diameter, root length, number of adventitious roots, AMF colonization rate), soil properties (moisture content, total and easily extractable glomalin-related soil proteins [GRSP], total carbon and nitrogen, organic matter), and elemental composition in sorghum roots (Al, Ca, Fe, K, Mg, P, S, Zn).
 - Fig1.RData: Stores raw data and associated analysis outputs presented in Figure 1.
