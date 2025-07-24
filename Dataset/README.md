@@ -1,4 +1,4 @@
-This folder contains data files referenced across Figures 1–5 of the study.
+This folder contains data files used in analyses throughout the study.
 
 - Fig.1)PlantBiometrics.csv: Plant biometric information including shoot height, dry mass, stalk diameter, root length, number of adventitious roots, and AMF colonization rate.
   
