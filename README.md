@@ -14,10 +14,10 @@ Figure 3
 Figure 4
 - Fig4_codes.R: Provides results from differential abundance analysis using ALDEx2, Spearman correlation between microbial taxa and plant nutrient uptake, and microbial associations with alpha diversity indices. Also includes PICRUSt2 outputs for functional trait inference in rhizosphere microbial communities.
 - Fig4.RData: Stores raw datasets and processed outputs for Figure 4.
-- PortraitDivergence.py: Python script for executing NetLSD-based network similarity assessments.
-- NetNSL.py: Python codes required to run NetNSL analyses.
 - KO.tsv: Tab-delimited file containing KEGG Orthology (KO) abundance data.
   
 Figure 5
 - Fig5_codes.R: Contains results from microbial network analyses, including files for Cytoscape visualization and network structure comparisons using Portrait Divergence and NetLSD metrics.
+- PortraitDivergence.py: Python script for executing NetLSD-based network similarity assessments.
+- NetNSL.py: Python codes required to run NetNSL analyses.
 - Fig5.RData: Includes analysis results and visualization-ready data featured in Figure 5.
