@@ -60,7 +60,6 @@ for (i in 3:length(phyloseq_list)) {
 ListlOcaiton <- c('Control', 'EBPR', 'Vermont', 'AMF', 'EBPR_AMF', 'Vermont_AMF')
 ListlOcaiton2 <- combn(ListlOcaiton, 2, simplify = FALSE)
 wilcox.p_resDf <- NULL
-
 for (cmb in ListlOcaiton2) {
   comparingdata <- subset_samples(glom_genus2, Location %in% cmb)
   print(cmb)
@@ -122,19 +121,22 @@ for (cmb in ListlOcaiton2) {
   x.all2 <- x.all
   x.all2$rowname <- rownames(x.all2)
   Output <- merge(x.all2, List, id = "rowname")
-  head(Output)
-  
+  A=gsub("rab.win.", "", colnames(Output)[3]);A
+  B=gsub("rab.win.", "", colnames(Output)[4]);B
+
   # Extract significant results (BH-adjusted p-value < 0.05)
-  res1 <- Output %>% filter(wi.eBH < 0.05) %>%
-    select(rowname, diff.btw, effect, taxa, wi.eBH, we.eBH, Phylum, Class, Order, Family, Genus) %>%
-    mutate(Comparison = paste(cmb, collapse = " vs. "))
+
+  res1<- Output %>% filter(wi.eBH < 0.05) %>%
+    dplyr::select(rowname ,diff.btw, diff.win, effect, taxa, wi.eBH,
+                  Phylum,Genus, Family,Order) %>%
+    mutate(compare = ifelse(diff.btw > 0, 
+                            paste(A, ">", B), 
+                            paste(B, ">", A)))
   
   wilcox.p_resDf <- bind_rows(wilcox.p_resDf, res1)
 }
-
 # ---- Step 5: Filter strong-effect taxa for (effect size > 2.5) visualization ----
-wilcox.p_resDf$Absolute_effect <- abs(wilcox.p_resDf$effect)
-wilcox.p_resDf
+
 Data100 <- wilcox.p_resDf %>%
   filter(Absolute_effect >= 2.5) %>%
   subset(taxa != "Kingdom:Unassigned" & taxa != "Kingdom:Bacteria") %>%
